@@ -82,7 +82,10 @@ export default function Inicio() {
         <div className="col-md-4">
           <h2 className="cart-title">Carrito de Compras:</h2>
           <div className="carrito-dropdown">
-            <Link to="/Compra" style={{ display: "block", marginTop: "10px" }}>
+            <Link to={{
+              pathname: "/Compra",
+              state: { carrito } 
+            }} style={{ display: "block", marginTop: "10px" }}>
               <button className="btn btn-green">Comprar</button>
             </Link>
             <button className="btn btn-orange" onClick={toggleCarrito} style={{ width: "100%" }}>
@@ -139,7 +142,6 @@ export default function Inicio() {
           )}
         </div>
         <div className="col-md-6">
-          {/* Resto de tu código */}
         </div>
       </div>
     </div>
