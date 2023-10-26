@@ -1,0 +1,48 @@
+/* Definición de colores personalizados */
+:root {
+    --color-naranja: #FFA500;
+    --color-negro: #000000;
+    --color-blanco: #FFFFFF;
+  }
+  
+  /* Estilo del contenedor principal */
+  .bg-primary {
+    background-color: var(--color-naranja) !important;
+  }
+  
+  /* Estilo del contenedor interno */
+  .bg-white {
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+    border: 1px solid var(--color-negro);
+    padding: 20px;
+    border-radius: 0; /* Elimina el borde redondeado para que sea cuadrado */
+  }
+  
+  /* Estilo de los títulos */
+  h2 {
+    color: var(--color-negro);
+  }
+  
+  /* Estilo de los campos de entrada */
+  .form-control {
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+    border: 1px solid var(--color-negro);
+  }
+  
+  /* Estilo de los botones */
+  .btn-primary {
+    background-color: var(--color-negro);
+    color: var(--color-blanco);
+    border-color: var(--color-naranja);
+    border-radius: 0; /* Elimina el borde redondeado */
+  }
+  
+  /* Elimina el borde redondeado de DatePicker si es necesario */
+  .react-datepicker {
+    border-radius: 0;
+  }
+  
+  /* Otros estilos específicos pueden ir aquí */
+  

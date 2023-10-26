@@ -1,0 +1,26 @@
+.supermarket-login {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);/* Centra el contenido en el componente */
+  position: absolute; /* Añade posicionamiento absoluto */
+  top: 50%; /* Posiciona el 50% del contenedor en la parte superior */
+  left: 50%; /* Posiciona el 50% del contenedor a la izquierda */
+  transform: translate(-50%, -50%); /* Centra el contenedor */
+}
+
+/* Estilos para los botones */
+.btn-primary {
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-primary:hover {
+  background-color: #ff7f00;
+}
+
+/* Otros estilos personalizados aquí */
