@@ -1,0 +1,76 @@
+CREATE TABLE cliente
+(
+    dni INT PRIMARY KEY,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    fechaNac DATE,
+    distrito VARCHAR(50),
+    departamento VARCHAR(50),
+    fechaAfili DATE,
+    correo VARCHAR(50)
+);
+
+INSERT INTO cliente (dni, nombre, apellido, fechaNac, distrito, departamento, fechaAfili, correo)
+VALUES
+  (123456789, 'Juan', 'Pérez', '1990-01-15', 'Lima', 'Lima', '2021-05-20', 'juan@example.com'),
+  (987654321, 'María', 'Gómez', '1985-08-25', 'Arequipa', 'Arequipa', '2022-02-10', 'maria@example.com'),
+  (555555555, 'Pedro', 'Sánchez', '1995-03-10', 'Cusco', 'Cusco', '2021-09-30', 'pedro@example.com'),
+  (999999999, 'Laura', 'Martínez', '1988-12-05', 'Trujillo', 'La Libertad', '2022-03-15', 'laura@example.com'),
+  (111111111, 'Carlos', 'López', '1992-06-20', 'Arequipa', 'Arequipa', '2021-11-10', 'carlos@example.com'),
+  (222222222, 'Ana', 'Rodríguez', '1987-04-18', 'Lima', 'Lima', '2021-07-25', 'ana@example.com'),
+  (333333333, 'Diego', 'García', '1998-09-28', 'Cusco', 'Cusco', '2022-04-05', 'diego@example.com'),
+  (444444444, 'Sofía', 'Hernández', '1984-03-30', 'Trujillo', 'La Libertad', '2021-12-10', 'sofia@example.com'),
+  (666666666, 'Luis', 'Torres', '1993-07-14', 'Arequipa', 'Arequipa', '2021-08-15', 'luis@example.com'),
+  (888888888, 'Elena', 'López', '1990-02-02', 'Lima', 'Lima', '2022-01-20', 'elena@example.com');
+
+select * from cliente
+
+CREATE TABLE producto
+(
+    codigo SERIAL PRIMARY KEY,
+    nombre VARCHAR(100),
+    precio DECIMAL(10, 2),
+    stock INT,
+    categoria VARCHAR(50)
+);
+CREATE TABLE venta
+(
+    id SERIAL PRIMARY KEY,
+    fecha TIMESTAMP,
+    cliente_dni INT,
+    total DECIMAL(10, 2),
+    FOREIGN KEY (cliente_dni) REFERENCES cliente(dni)
+);
+CREATE TABLE carrito
+(
+    id SERIAL PRIMARY KEY,
+    cliente_dni INT,
+    producto_codigo INT,
+    cantidad INT,
+    FOREIGN KEY (cliente_dni) REFERENCES cliente(dni),
+    FOREIGN KEY (producto_codigo) REFERENCES producto(codigo)
+);
+
+INSERT INTO producto (nombre, precio, stock, categoria)
+VALUES
+  ('Arroz 50kg', 149.5, 100, 'Alimentos'),
+  ('Leche twelve pack', 23.80, 50, 'Alimentos'),
+  ('Papel higiénico x36 rollos', 30.00, 200, 'Higiene'),
+  ('Shampoo 12 unidades', 40.00, 30, 'Higiene'),
+  ('Cerveza 3 x 12', 20.60, 80, 'Bebidas'),
+  ('Gaseosa 3L x 6und.', 55.00, 60, 'Bebidas'),
+  ('Pan Integral 20und', 35.50, 75, 'Alimentos'),
+  ('Detergente 30kg', 68.70, 40, 'Limpieza'),
+  ('Cepillo de dientes 12und', 10.90, 90, 'Higiene'),
+  ('Jabón de manos 12 und', 15.30, 50, 'Higiene'),
+  ('Chocolate caja de 20und', 37.80, 60, 'Snacks'),
+  ('Pasta de dientes 10und', 15.90, 700, 'Higiene'),
+  ('Acondicionador 10und', 49.99, 20, 'Higiene'),
+  ('Café caja de 50und', 63.6, 40, 'Bebidas'),
+  ('Detergente para platos caja 6L', 50.48, 45, 'Limpieza'),
+  ('Pasta 10kg', 11.90, 55, 'Alimentos'),
+  ('Aceite de cocina 50L', 138.90, 250, 'Alimentos'),
+  ('Champú 12 und', 34.90, 300, 'Higiene'),
+  ('Papel toalla 20und', 40.90, 800, 'Limpieza'),
+  ('Snacks 15und', 14.75, 1000, 'Snacks');
+
